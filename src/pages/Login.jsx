@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MyContext from '../Context/MyContext';
 import { loginValidate } from '../services/RequestAPI';
+import '../style/Login.css';
 
 export default function Login() {
   const { setToken, setRole, setCoins, setName } = useContext(MyContext);
@@ -24,8 +25,8 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="login-container">
+      <h1 className="title">Login</h1>
       <form>
         <label>
           Email
@@ -52,8 +53,8 @@ export default function Login() {
           Entrar
         </button>
       </form>
-      {login && <span>Usuario ou senha invalidos</span>}
-      <div>
+      {login && <span className="error-login">Usuario ou senha invalidos</span>}
+      <div className="new-user">
         <span>Ainda nao e usuario?</span>
         <button
           onClick={ () => navigate('/create') }

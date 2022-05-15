@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import MyContext from "../Context/MyContext";
 import { getAllProducts, deleteProduct as productDelete } from "../services/RequestAPI";
+import '../style/Home.css';
 
 export default function HomePage() {
   const { token, setProducts, products, role } = useContext(MyContext)
@@ -29,13 +30,13 @@ export default function HomePage() {
   return (
     <div>
       <Header />
-      <div>
+      <div className="container-products">
         {
           products.map((product) => (
-            <div key={ product.id }>
+            <div className="card-product" key={ product.id }>
               <h3>{ product.name }</h3>
               <p>{ product.description }</p>
-              <span>{ product.quantity }</span>
+              <span>Quantidade: { product.quantity }</span>
               {role === 'admin' &&
                 <div>
                   <button

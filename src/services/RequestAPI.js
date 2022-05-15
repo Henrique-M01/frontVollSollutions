@@ -3,7 +3,7 @@ import axios from 'axios';
 export async function loginValidate(email, password) {
   const validate = await axios.post(
     'http://localhost:3006/login/validate', { email, password });
-
+  
   return validate.data;
 }
 
