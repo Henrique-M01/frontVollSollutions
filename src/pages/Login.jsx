@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MyContext from '../Context/MyContext';
-import loginValidate from '../services/RequestAPI';
+import { loginValidate } from '../services/RequestAPI';
 
 export default function Login() {
   const { setToken, setRole, setCoins, setName } = useContext(MyContext);
@@ -20,7 +20,7 @@ export default function Login() {
     setRole(validate.role);
     setCoins(validate.coins);
     setName(validate.name);
-    
+    navigate('/home')
   }
 
   return (
@@ -36,7 +36,7 @@ export default function Login() {
           />
         </label>
         <label>
-          Pasword
+          Senha
           <input
             type="pasword"
             placeholder="Digite sua senha"
@@ -44,7 +44,10 @@ export default function Login() {
           />
         </label>
         <button
-          onClick={ () => validLogin(email, password) }
+          onClick={ (event) => {
+            event.preventDefault();
+            validLogin(email, password)
+          } }
         >
           Entrar
         </button>
@@ -55,7 +58,7 @@ export default function Login() {
         <button
           onClick={ () => navigate('/create') }
         >
-          Criar usuaria
+          Criar Usuario
         </button>
       </div>
     </div>
