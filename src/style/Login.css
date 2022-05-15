@@ -1,0 +1,63 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  align-items: center;
+}
+
+.title {
+  font-size: xx-large;
+  color: rgb(80, 80, 80);
+}
+
+.error-login {
+  color: red;
+  font-size: medium;
+}
+
+.new-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: space-around;
+  color: rgb(80, 80, 80);
+}
+
+.new-user > span {
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  align-items: center;
+  height: 150px;
+  justify-content: space-around;
+}
+
+button {
+  width: 130px;
+  padding: 5px 14px;
+  border-radius: 10px;
+  color: rgb(80, 80, 80);
+  background-color: azure;
+  box-shadow: 1px 2px rgb(80, 80, 80);
+}
+
+button:hover {
+  background-color: blanchedalmond;
+  transition: 200ms;
+}
+
+label {
+  color: rgb(80, 80, 80);
+  font-size: large;
+}
+
+input {
+  padding: 5px 12px;
+  border-radius: 8px;
+  margin-left: 7px;
+}
