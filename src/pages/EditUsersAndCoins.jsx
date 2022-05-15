@@ -9,6 +9,7 @@ export default function EditUserAndCoins() {
   const [users, setUsers] = useState([]);
   const [edit, setEdit] = useState(false);
   const [coins, setCoins] = useState(0);
+  const [id, setId] = useState(false);
 
   const navigate = useNavigate();
 
@@ -33,21 +34,31 @@ export default function EditUserAndCoins() {
   return (
     <div>
       <button
+        className="create-products"
         onClick={ () => navigate('/create/products') }
       >
         Criar novo produto
       </button>
+      <button
+        onClick={() => navigate('/home')}
+      >
+        Home
+      </button>
+      <div className="container-products">
       {users.map((user) => (
-        <div key={ user.id }>
-          <p>{ user.name }</p>
-          <p>{ user.email }</p>
-          <p>{ user.coins }</p>
+        <div className="card-product" key={ user.id }>
+          <p>Nome: { user.name }</p>
+          <p>Email: { user.email }</p>
+          <p>Moedas: { user.coins }</p>
           <button
-            onClick={ () => setEdit(true) }
+            onClick={ () => {
+              setEdit(true)
+              setId(user.id);
+            } }
           >
             Editar Moedas
           </button>
-          {edit &&
+          {id === user.id && edit &&
             <div>
               <input 
                 type="number"
@@ -63,6 +74,7 @@ export default function EditUserAndCoins() {
           }
         </div>
       ))}
+      </div>
     </div>
   )
 }

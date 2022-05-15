@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import MyContext from "../Context/MyContext";
 import { createProduct, updateProduct } from "../services/RequestAPI";
+import '../style/Login.css';
+
 
 export default function CreateOrUpdateUsers() {
   const { token } = useContext(MyContext);
@@ -31,7 +33,7 @@ export default function CreateOrUpdateUsers() {
   }
 
   return (
-    <div>
+    <div className="login-container">
       <form>
         <label htmlFor="input-name">
           Nome
@@ -42,7 +44,9 @@ export default function CreateOrUpdateUsers() {
             onChange={(event) => setName(event.target.value) }
           />
         </label>
-        <label htmlFor="input-description">
+        <label
+          htmlFor="input-description"
+        >
           Descricao
           <input
             id="input-description"
