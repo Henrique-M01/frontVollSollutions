@@ -8,6 +8,7 @@
 .title {
   font-size: xx-large;
   color: rgb(80, 80, 80);
+  margin-left: 25px;
 }
 
 .error-login {
@@ -26,6 +27,7 @@
 
 .new-user > span {
   margin-bottom: 10px;
+  margin-left: 40px;
 }
 
 form {
@@ -44,6 +46,7 @@ button {
   color: rgb(80, 80, 80);
   background-color: azure;
   box-shadow: 1px 2px rgb(80, 80, 80);
+  margin-left: 45px;
 }
 
 button:hover {
