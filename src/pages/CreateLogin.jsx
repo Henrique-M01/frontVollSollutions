@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginCreate } from '../services/RequestAPI';
+import '../style/CreateLogin.css';
+import '../style/Login.css';
 
 export default function CreateLogin() {
   const [name, setName] = useState('');
@@ -29,7 +31,7 @@ export default function CreateLogin() {
     }
 
   return (
-    <div>
+    <div className="login-container">
       <form>
         <label>
           Nome
@@ -55,7 +57,7 @@ export default function CreateLogin() {
             onChange={ (event) => setPassword(event.target.value)}
           />
         </label>
-        <label>
+        <label className="confirm-password">
           Confirme a senha
           <input
             type="password"
