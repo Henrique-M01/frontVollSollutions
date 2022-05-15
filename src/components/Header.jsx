@@ -9,7 +9,7 @@ export default function Header() {
     <div>
       {role === 'admin' &&
       <Link to="/edit">Editar usuarios</Link>}
-      <h1>ProductsByCoins</h1>
+      <h1>Products</h1>
       <h2>{ name }</h2>
       <h3>{ coins }</h3>
     </div>
