@@ -23,11 +23,13 @@ export default function Provider({ children }) {
   }
 
 
-  return <MyContext.Provider value={ STORE_CONTEXT }>
-    { children }
-  </MyContext.Provider>
+  return (
+    <MyContext.Provider value={ STORE_CONTEXT }>
+      { children }
+    </MyContext.Provider>
+  )
 };
 
 Provider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.element.isRequired,
 }
