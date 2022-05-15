@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import MyContext from "../Context/MyContext";
 import { getAllProducts, deleteProduct as productDelete } from "../services/RequestAPI";
@@ -6,6 +7,8 @@ import { getAllProducts, deleteProduct as productDelete } from "../services/Requ
 export default function HomePage() {
   const { token, setProducts, products, role } = useContext(MyContext)
   const [deleted, setDeleted] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getAll() {
@@ -36,18 +39,24 @@ export default function HomePage() {
               {role === 'admin' &&
                 <div>
                   <button
-                    onClick={async () => await deleteProduct(product.id, token)}
+                    onClick={ async () => await deleteProduct(product.id, token) }
                   >
                     Deletar
                   </button>
-                  <button>Editar</button>
+                  <button
+                    onClick={ () => navigate(`/update/${product.id}`) }
+                  >
+                    Editar
+                  </button>
                 </div>
               }
             </div>
           ))
         }
         {role === 'admin' &&
-          <button>Criar novo produto</button>
+          <button
+            onClick={ () => navigate('/create/products') }
+          >Criar novo produto</button>
         }
       </div>
     </div>

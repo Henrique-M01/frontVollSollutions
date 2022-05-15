@@ -32,8 +32,8 @@ export async function deleteProduct(id, token) {
   return deleted.data;
 }
 
-export async function createProduct(id, name, description, quantity, token) {
-  const create = await axios.post(`http://localhost:3006/products/${id}`,
+export async function createProduct(name, description, quantity, token) {
+  const create = await axios.post(`http://localhost:3006/products`,
   { name, description, quantity }, {
     headers: {
       'Authorization': token,
@@ -41,4 +41,15 @@ export async function createProduct(id, name, description, quantity, token) {
   })
 
   return create.data;
+}
+
+export async function updateProduct(id, name, quantity, description, token) {
+  const update = await axios.put(`http://localhost:3006/products/${id}`,
+    { name, description, quantity }, {
+      headers: {
+        'Authorization': token,
+      }
+    })
+
+  return update.data;
 }
