@@ -17,19 +17,10 @@ export async function loginCreate(name, email, password) {
 export async function getAllProducts(token) {
   const allProducts = await axios.get('http://localhost:3006/products', 
   { headers: {
-    'Authorization': token,
+    'authorization': token,
   } })
 
   return allProducts.data;
-}
-
-export async function getProductById(id, token) {
-  const product = await axios.get(`http://localhost:3006/products/${id}`,
-  { headers: {
-    'Authorization': token,
-  }})
-
-  return product.data;
 }
 
 export async function deleteProduct(id, token) {
