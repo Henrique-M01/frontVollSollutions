@@ -53,11 +53,6 @@ export default function HomePage() {
             </div>
           ))
         }
-        {role === 'admin' &&
-          <button
-            onClick={ () => navigate('/create/products') }
-          >Criar novo produto</button>
-        }
       </div>
     </div>
   )

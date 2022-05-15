@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 import MyContext from "../Context/MyContext";
 import { editCoinsById, getAllUsers } from "../services/RequestAPI"
 
@@ -8,6 +9,8 @@ export default function EditUserAndCoins() {
   const [users, setUsers] = useState([]);
   const [edit, setEdit] = useState(false);
   const [coins, setCoins] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getAll() {
@@ -29,6 +32,11 @@ export default function EditUserAndCoins() {
 
   return (
     <div>
+      <button
+        onClick={ () => navigate('/create/products') }
+      >
+        Criar novo produto
+      </button>
       {users.map((user) => (
         <div key={ user.id }>
           <p>{ user.name }</p>
