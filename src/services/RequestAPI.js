@@ -53,3 +53,23 @@ export async function updateProduct(id, name, quantity, description, token) {
 
   return update.data;
 }
+
+export async function getAllUsers(token) {
+  const allUsers = await axios.get('http://localhost:3006/users', {
+    headers: {
+      'Authorization': token,
+    }
+  })
+
+  return allUsers.data;
+}
+
+export async function editCoinsById(id, token, coins) {
+  const edited = await axios.put(`http://localhost:3006/coins/${id}`, { coins }, {
+    headers: {
+      'Authorization': token,
+    }
+  })
+
+  return edited.data;
+}
